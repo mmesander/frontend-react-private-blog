@@ -1,9 +1,8 @@
-import React from "react";
 import './App.css';
 
 //functions react
-// import React, {useState} from 'react';
-import {Routes, Route} from 'react-router-dom'
+import React, {useState} from 'react';
+import {Routes, Route, Navigate} from 'react-router-dom'
 
 //components
 import Navigation from './components/navigation/Navigation';
@@ -17,15 +16,16 @@ import Blog from './pages/blog/Blog';
 
 function App() {
     // We houden in de state bij of iemand is "ingelogd" (simpele versie)
-    // const [isAuthenticated, toggleIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    console.log(isAuthenticated)
 
     return (
         <>
             <Navigation/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/blogposts" element={<Blogposts/>}/>
+                <Route  path="/login" element={<Login setIsAuth={setIsAuthenticated} isAuth={isAuthenticated}/>}/>
+                <Route path="/blogposts" element={ isAuthenticated ? <Blogposts/> : <Navigate to="/login"/>}/>
                 <Route path="/blogposts/:blogId" element={<Blog/>}></Route>
             </Routes>
         </>
