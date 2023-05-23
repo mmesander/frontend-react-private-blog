@@ -17,7 +17,7 @@
     color: white;
 }
 
-.log-button:hover {
+.login-button:hover {
     cursor: pointer;
     background-color: darkgreen;
 }

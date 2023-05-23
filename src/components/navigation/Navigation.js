@@ -16,8 +16,11 @@ function Navigation({isAuth, setIsAuth}) {
 
                 <ul>
                     <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/">Home</NavLink></li>
+                    {/*Blog overzicht wordt alleen geinjecteerd indien isAuth true is*/}
                     {isAuth && <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/blogposts">Blog overzicht</NavLink></li>}
+                    {/*Login wordt alleen geinjecteerd indien isAuth false is*/}
                     {!isAuth && <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/login">Login</NavLink></li>}
+                    {/*De button wordt alleen geinjecteerd indien isAuth true is*/}
                     {isAuth && <li><button type="button" className="logout-button" onClick={logout}>Uitloggen</button></li>}
                 </ul>
             </div>

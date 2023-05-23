@@ -54,4 +54,5 @@ nav a:hover {
 
 .logout-button:hover{
     cursor: pointer;
+    background-color: darkgreen;
 }
