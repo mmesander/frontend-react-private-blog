@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  // We houden in de state bij of iemand is "ingelogd" (simpele versie)
-  const [isAuthenticated, toggleIsAuthenticated] = useState(false);
+//functions react
+import React, {useState} from 'react';
+import {Routes, Route, Navigate} from 'react-router-dom'
 
-  return (
-    <div>
-      Maak hier jouw prachtige blog-applicatie!
-    </div>
-  );
+//components
+import Navigation from './components/navigation/Navigation';
+
+//pages
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Blogposts from './pages/blogposts/Blogposts';
+import Blog from './pages/blog/Blog';
+
+
+function App() {
+    // We houden in de state bij of iemand is "ingelogd" (simpele versie)
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    console.log(isAuthenticated)
+
+    return (
+        <>
+            <Navigation isAuth={isAuthenticated} setIsAuth={setIsAuthenticated}/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route  path="/login" element={<Login setIsAuth={setIsAuthenticated} isAuth={isAuthenticated}/>}/>
+                <Route path="/blogposts" element={ isAuthenticated ? <Blogposts/> : <Navigate to="/login"/>}/>
+                <Route path="/blogposts/:blogId" element={<Blog/>}></Route>
+            </Routes>
+        </>
+    );
 }
 
 export default App;

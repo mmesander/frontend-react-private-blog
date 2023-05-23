@@ -1,0 +1,28 @@
+.blog-list {
+    list-style-type: inherit;
+    color: darkgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    margin: 40px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: 4px 8px 12px lightgrey;
+    width: 800px;
+}
+
+.blog-list a,
+.blog-list a:visited {
+    color: darkslateblue;
+}
+
+.blog-list a:hover {
+    color: darkgreen;
+}
