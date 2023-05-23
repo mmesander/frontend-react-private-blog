@@ -1,8 +1,14 @@
 import React from "react";
 import './Navigation.css';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
-function Navigation({isAuth}) {
+function Navigation({isAuth, setIsAuth}) {
+    const navigate = useNavigate();
+    function logout() {
+        setIsAuth(!isAuth)
+        navigate("/")
+    }
+
     return (
         <nav>
             <div className="nav-container">
@@ -11,7 +17,8 @@ function Navigation({isAuth}) {
                 <ul>
                     <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/">Home</NavLink></li>
                     {isAuth && <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/blogposts">Blog overzicht</NavLink></li>}
-                    <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/login">Login</NavLink></li>
+                    {!isAuth && <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/login">Login</NavLink></li>}
+                    {isAuth && <li><button type="button" className="logout-button" onClick={logout}>Uitloggen</button></li>}
                 </ul>
             </div>
         </nav>

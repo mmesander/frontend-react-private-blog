@@ -45,3 +45,13 @@ nav a:hover {
 .active-nav-link:hover {
     border-bottom: 1px solid darkgreen;
 }
+
+.logout-button {
+    padding: 5px;
+    background-color: indianred;
+    color: white;
+}
+
+.logout-button:hover{
+    cursor: pointer;
+}
