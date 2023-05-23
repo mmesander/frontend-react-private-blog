@@ -1,0 +1,15 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    margin: 40px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: 4px 8px 12px lightgrey;
+    width: 800px;
+}
+
+.login-button {
+    width: 8%;
+}

@@ -1,0 +1,47 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100vw;
+    margin: 0 auto;
+    padding-inline: 40px;
+}
+
+nav {
+    width: 100%;
+    background-color: darkslateblue;
+    display: flex;
+    height: 70px;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    font-weight: bold;
+}
+
+nav a,
+nav a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: darkgreen;
+}
+
+.default-nav-link {
+    border-bottom: 1px solid transparent;
+}
+
+.active-nav-link {
+    border-bottom: 1px solid white;
+}
+
+.active-nav-link:hover {
+    border-bottom: 1px solid darkgreen;
+}
