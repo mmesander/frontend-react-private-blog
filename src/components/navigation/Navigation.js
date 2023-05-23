@@ -2,7 +2,7 @@ import React from "react";
 import './Navigation.css';
 import {NavLink} from "react-router-dom";
 
-function Navigation() {
+function Navigation({isAuth}) {
     return (
         <nav>
             <div className="nav-container">
@@ -10,7 +10,7 @@ function Navigation() {
 
                 <ul>
                     <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/">Home</NavLink></li>
-                    <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/blogposts">Blog overzicht</NavLink></li>
+                    {isAuth && <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/blogposts">Blog overzicht</NavLink></li>}
                     <li><NavLink className={({isActive}) => isActive ? 'active-nav-link' : 'default-nav-link'} to="/login">Login</NavLink></li>
                 </ul>
             </div>

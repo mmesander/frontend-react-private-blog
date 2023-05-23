@@ -21,7 +21,7 @@ function App() {
 
     return (
         <>
-            <Navigation/>
+            <Navigation isAuth={isAuthenticated}/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route  path="/login" element={<Login setIsAuth={setIsAuthenticated} isAuth={isAuthenticated}/>}/>
